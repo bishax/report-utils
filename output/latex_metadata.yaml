@@ -1,0 +1,6 @@
+header-includes:
+#- |
+#  ```{=latex}
+#  \graphicspath{{"../../figures"}}
+#  ```
+

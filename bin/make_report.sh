@@ -6,7 +6,7 @@ pandoc -s report.md\
  --metadata-file latex_metadata.yaml\
  -f markdown\
  -o report.tex\
- --bibliography 'technicalreport.bib'\
+ --bibliography 'bibliography.bib'\
  --filter ../bin/pandoc_altair_filter.py\
  --natbib -F pandoc-crossref\
  --metadata figure_path="figures"\

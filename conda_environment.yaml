@@ -20,6 +20,8 @@ dependencies:
 
   - pip:
     # Put any pip dependencies here (and no conda ones anywhere below)
+    - altair_saver
+    - vega_datasets
 
   # Tooling requirements (don't edit)
   - pandoc
