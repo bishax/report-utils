@@ -7,17 +7,41 @@ Exploratory project for defining a technical report writing workflow.
 
 To configure git and build the environment simply run `make install`.
 
-## Code-style
+## Example report
 
-Please run `make lint` to format your code to a common style, and to lint code with flake8.
+Source file: `output/report.md`
 
-## Approach to notebooks
 
-Jupyter notebooks are great for exploration and presentation but cause problems for working collaboratively.
+Run `make report` to generate `output/report.pdf`
 
-Use [Jupytext](https://jupytext.readthedocs.io/en/latest/) to automatically convert notebooks to and from `.py` format, commit the `.py` version (`.ipynb` files are ignored by git).
 
-This allows us to separate code from output data, facilitating easier re-factoring, testing, execution, and code review.
+Run `make report_html` to generate `output/report.html`
+
+
+To view the HTML report run `sh bin/report_server.sh` and go to [localhost:8080/output/report.html](localhost:8080/output/report.html) in your browser.
+
+
+Run `make report_s3` to generate `output/report.html` and upload it to s3 [here](https://nesta-test.s3.eu-west-2.amazonaws.com/report-utils/report.html).
+
+
+## Weekly review slides
+
+Source file: `output/slides.md`
+
+Run `sh bin/slide_setup.sh && sh bin/make_slides.sh && sh bin/report_server.sh` to make the slides and go to [localhost:8080/output/myslides.html](localhost:8080/output/myslides.html) in your browser.
+
+
+## Collaborative editing and review with Hackmd
+
+Install one of the hackmd browser extensions:
+
+[Chrome](https://chrome.google.com/webstore/detail/hackmd-it/cnephjboabhkldgfpdokefccdofncdjh)
+
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/hackmd-it/?src=search)
+
+Then go to [the report file on github](https://github.com/bishax/report-utils/blob/dev/output/report.md) and click on the "Edit on HackMD" button.
+
+You can then share the URL with colleagues for collaborative editing and/or review, and then commit the changes back to github.
 
 --------
 
