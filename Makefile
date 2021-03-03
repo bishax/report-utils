@@ -35,6 +35,18 @@ endef
 
 install: git create_environment
 
+## Build report (Latex PDF)
+report:
+	bash bin/make_report.sh
+
+## Build report (HTML)
+report_html:
+	bash bin/make_report_html.sh
+
+## Build report (HTML on S3)
+report_s3:
+	bash bin/make_report_s3.sh
+
 ## Setup git filter for notebooks
 git:
 	bash bin/git_setup.sh
