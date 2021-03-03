@@ -7,7 +7,7 @@ pandoc -s report.md\
  -f markdown\
  -o report.html\
  -F pandoc-crossref\
- --bibliography 'technicalreport.bib'\
+ --bibliography 'bibliography.bib'\
  --filter ../bin/pandoc_altair_filter.py\
  --metadata bucket="nesta-test"\
  --self-contained\
