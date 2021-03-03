@@ -1,23 +1,18 @@
 #!/bin/bash
 set -euo pipefail
 
-exit 1
-cd $(dirname $0)/../reports/technical_report
-pandoc -s 0_exec_summary.md\
- 1_introduction.md\
- 2_literature.md\
- 3_methodology.md\
- 4_results.md\
- 5_conclusions.md\
+BUCKET="nesta-test"
+
+cd $(dirname $0)/../output
+pandoc -s report.md\
  --metadata-file html_metadata.yaml\
  -f markdown\
  -o report.html\
  -F pandoc-crossref\
- --bibliography 'technicalreport.bib'\
- --filter ../../bin/altair_pandoc_filter.py\
- --metadata bucket="scotland-figures"\
- --resource-path="../../figures/.:."\
+ --bibliography 'bibliography.bib'\
+ --filter ../bin/pandoc_altair_filter.py\
+ --metadata bucket=$BUCKET\
  --toc\
  -C
-aws s3 cp ../../figures/ s3://scotland-figures/ --recursive --acl public-read
-aws s3 cp report.html s3://scotland-figures/report.html --acl public-read
+aws s3 cp figures/ s3://$BUCKET/report-utils/figures --recursive --acl public-read
+aws s3 cp report.html s3://$BUCKET/report-utils/report.html --acl public-read
