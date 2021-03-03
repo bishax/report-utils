@@ -22,7 +22,9 @@ dependencies:
     # Put any pip dependencies here (and no conda ones anywhere below)
 
   # Tooling requirements (don't edit)
-    - tornado>=5.0  # Stops luigi breaking jupyter
+  - pandoc
+  - pandocfilters
+  - pandoc-crossref
   - tqdm
   - pyyaml
   - pytables
