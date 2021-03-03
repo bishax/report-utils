@@ -1,21 +1,15 @@
 #!/bin/bash
 set -euo pipefail
 
-cd $(dirname $0)/../reports/technical_report
-pandoc -s 0_exec_summary.md\
- 1_introduction.md\
- 2_literature.md\
- 3_methodology.md\
- 4_results.md\
- 5_conclusions.md\
+cd $(dirname $0)/../output
+pandoc -s report.md\
  --metadata-file html_metadata.yaml\
  -f markdown\
  -o report.html\
  -F pandoc-crossref\
  --bibliography 'technicalreport.bib'\
- --filter ../../bin/altair_pandoc_filter.py\
- --metadata bucket="scotland-figures"\
- --resource-path="../../figures/.:."\
+ --filter ../bin/pandoc_altair_filter.py\
+ --metadata bucket="nesta-test"\
  --self-contained\
  --toc\
  -C
